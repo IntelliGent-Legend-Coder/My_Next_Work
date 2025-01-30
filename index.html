@@ -14,11 +14,11 @@
             <div class="flex justify-between items-center">
                 <a href="#" class="text-2xl font-bold text-blue-600">Dr. Jane Doe</a>
                 <div class="hidden md:flex space-x-4">
-                    <a href="#about" class="text-gray-800 hover:text-blue-600">About</a>
-                    <a href="#services" class="text-gray-800 hover:text-blue-600">Services</a>
-                    <a href="#portfolio" class="text-gray-800 hover:text-blue-600">Portfolio</a>
-                    <a href="#testimonials" class="text-gray-800 hover:text-blue-600">Testimonials</a>
-                    <a href="#contact" class="text-gray-800 hover:text-blue-600">Contact</a>
+                    <a href="#about" class="nav-link text-gray-800 hover:text-blue-600">About</a>
+                    <a href="#services" class="nav-link text-gray-800 hover:text-blue-600">Services</a>
+                    <a href="#portfolio" class="nav-link text-gray-800 hover:text-blue-600">Portfolio</a>
+                    <a href="#testimonials" class="nav-link text-gray-800 hover:text-blue-600">Testimonials</a>
+                    <a href="#contact" class="nav-link text-gray-800 hover:text-blue-600">Contact</a>
                 </div>
                 <button class="md:hidden" id="menu-toggle">
                     <i class="fas fa-bars"></i>
@@ -86,9 +86,48 @@
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center mb-12">Portfolio</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Work 1" class="rounded-lg shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1445527815219-ecbfec67492e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Work 2" class="rounded-lg shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Work 3" class="rounded-lg shadow-lg">
+                    <div class="portfolio-item rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Work 1" class="w-full h-64 object-cover">
+                        <div class="portfolio-caption">
+                            <h3 class="text-lg font-semibold mb-2">Cosmetic Dentistry</h3>
+                            <p>Complete smile makeover with veneers</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1445527815219-ecbfec67492e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Work 2" class="w-full h-64 object-cover">
+                        <div class="portfolio-caption">
+                            <h3 class="text-lg font-semibold mb-2">Teeth Whitening</h3>
+                            <p>Professional in-office whitening treatment</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Work 3" class="w-full h-64 object-cover">
+                        <div class="portfolio-caption">
+                            <h3 class="text-lg font-semibold mb-2">Dental Implants</h3>
+                            <p>Single tooth implant restoration</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Work 4" class="w-full h-64 object-cover">
+                        <div class="portfolio-caption">
+                            <h3 class="text-lg font-semibold mb-2">Orthodontics</h3>
+                            <p>Clear aligner treatment for straighter teeth</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Work 5" class="w-full h-64 object-cover">
+                        <div class="portfolio-caption">
+                            <h3 class="text-lg font-semibold mb-2">Gum Contouring</h3>
+                            <p>Aesthetic gum reshaping procedure</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Work 6" class="w-full h-64 object-cover">
+                        <div class="portfolio-caption">
+                            <h3 class="text-lg font-semibold mb-2">Smile Design</h3>
+                            <p>Digital smile makeover planning</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
