@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeRelief Dental Clinic</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .navbar-blur {
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-background {
+            background-image: url('Need_Images/pexels-pavel-danilyuk-6812479.jpg'); /* Hero section background image from Pexels */
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <nav class="navbar-blur fixed w-full z-10 top-0 bg-white shadow-lg">
+        <div class="container mx-auto flex items-center justify-between py-2 px-4">
+            <a href="#" class="text-2xl font-bold">DeRelief Dental Clinic</a>
+            <div class="hidden md:block">
+                <ul class="flex space-x-4">
+                    <li><a href="#home" class="text-gray-700 hover:text-gray-900">Home</a></li>
+                    <li><a href="#about" class="text-gray-700 hover:text-gray-900">About</a></li>
+                    <li><a href="#services" class="text-gray-700 hover:text-gray-900">Services</a></li>
+                    <li><a href="#portfolio" class="text-gray-700 hover:text-gray-900">Portfolio</a></li>
+                    <li><a href="#testimonials" class="text-gray-700 hover:text-gray-900">Testimonials</a></li>
+                    <li><a href="#contact" class="text-gray-700 hover:text-gray-900">Contact</a></li>
+                </ul>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-button" class="text-gray-700 focus:outline-none">
+                    <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <ul class="flex flex-col space-y-2 px-4 py-2">
+                <li><a href="#home" class="text-gray-700 hover:text-gray-900">Home</a></li>
+                <li><a href="#about" class="text-gray-700 hover:text-gray-900">About</a></li>
+                <li><a href="#services" class="text-gray-700 hover:text-gray-900">Services</a></li>
+                <li><a href="#portfolio" class="text-gray-700 hover:text-gray-900">Portfolio</a></li>
+                <li><a href="#testimonials" class="text-gray-700 hover:text-gray-900">Testimonials</a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-gray-900">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-background flex items-center justify-center text-white text-center">
+        <div>
+            <h1 class="text-5xl font-bold">Welcome to DeRelief Dental Clinic</h1>
+            <p class="mt-4 text-lg">Your Smile, Our Priority</p>
+        </div>
+    </section>
+
+    <section id="about" class="mt-20 container mx-auto px-4 py-8">
+        <div class="text-center mb-8 bg-white bg-opacity-75 p-4 rounded-lg">
+            <h2 class="text-4xl font-bold text-gray-800">About DeRelief Dental Clinic</h2>
+            <p class="text-gray-600 mt-4">DeRelief Dental Clinic is committed to providing exceptional dental care services to our patients. Our team of experienced dental surgeons ensures a comfortable and stress-free experience for all. We use the latest technology and innovative techniques to deliver the best possible care. Your smile is our priority!</p>
+        </div>
+
+        <div class="mb-8">
+            <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Dental Surgeon" class="rounded-full shadow-lg mx-auto">
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h3 class="text-3xl font-semibold text-gray-800 mb-4">Our Mission</h3>
+            <p class="text-gray-700 mb-4">At DeRelief Dental Clinic, our mission is to provide top-quality dental care in a welcoming and friendly environment. We believe that a healthy smile is essential for overall well-being and self-confidence. Our goal is to make dental visits as comfortable and enjoyable as possible for our patients.</p>
+
+            <h3 class="text-3xl font-semibold text-gray-800 mb-4">Our Services</h3>
+            <p class="text-gray-700 mb-4">We offer a wide range of dental services to meet the needs of our patients, including:</p>
+            <ul class="list-disc list-inside text-gray-700 mb-4">
+                <li>Preventive care and cleanings</li>
+                <li>Restorative dentistry (fillings, crowns, bridges)</li>
+                <li>Cosmetic dentistry (teeth whitening, veneers)</li>
+                <li>Orthodontics (braces, Invisalign)</li>
+                <li>Endodontics (root canals)</li>
+                <li>Periodontics (gum disease treatment)</li>
+                <li>Oral surgery (extractions, implants)</li>
+            </ul>
+
+            <h3 class="text-3xl font-semibold text-gray-800 mb-4">Our Team</h3>
+            <p class="text-gray-700 mb-4">Our dedicated team of dental professionals is committed to providing compassionate and personalized care. Meet our team:</p>
+            <ul class="list-disc list-inside text-gray-700 mb-4">
+                <li>Dr. Jane Smith, DDS - Chief Dental Surgeon</li>
+                <li>Dr. John Doe, DDS - Orthodontist</li>
+                <li>Dr. Emily Johnson, DDS - Periodontist</li>
+                <li>Dr. Michael Brown, DDS - Endodontist</li>
+                <li>Dr. Sarah Davis, DDS - Cosmetic Dentist</li>
+            </ul>
+
+            <div class="mb-8">
+                <img src="Need_Images/pexels-tima-miroshnichenko-5355701.jpg" alt="Dental Team" class="rounded-lg shadow-lg mx-auto">
+            </div>
+
+            <h3 class="text-3xl font-semibold text-gray-800 mb-4">Our Facility</h3>
+            <p class="text-gray-700 mb-4">DeRelief Dental Clinic is equipped with state-of-the-art facilities and cutting-edge technology to ensure the highest standard of care. Our clinic features:</p>
+            <ul class="list-disc list-inside text-gray-700 mb-4">
+                <li>Modern treatment rooms with the latest dental equipment</li>
+                <li>Comfortable waiting areas with amenities for patients</li>
+                <li>Advanced sterilization and infection control protocols</li>
+                <li>Digital imaging and diagnostic tools</li>
+                <li>Relaxing environment with soothing music and decor</li>
+            </ul>
+
+            <div class="mb-8">
+                <img src="Need_Images/pexels-tima-miroshnichenko-5355828.jpg" alt="Dental Clinic" class="rounded-lg shadow-lg mx-auto">
+            </div>
+
+            <h3 class="text-3xl font-semibold text-gray-800 mb-4">Patient Testimonials</h3>
+            <p class="text-gray-700 mb-4">We are proud of the positive feedback we receive from our patients. Here are some testimonials:</p>
+            <blockquote class="bg-gray-100 p-4 rounded-lg mb-4">
+                <p class="text-gray-700 italic">"DeRelief Dental Clinic is the best! The staff is friendly and professional, and they always make me feel comfortable during my visits. Highly recommend!" - Sarah L.</p>
+            </blockquote>
+            <blockquote class="bg-gray-100 p-4 rounded-lg mb-4">
+                <p class="text-gray-700 italic">"I had a great experience at DeRelief Dental Clinic. The dentists are knowledgeable and skilled, and the clinic is clean and modern. I am very happy with my treatment!" - John P.</p>
+            </blockquote>
+
+            <h3 class="text-3xl font-semibold text-gray-800 mb-4">Contact Us</h3>
+            <p class="text-gray-700 mb-4">We welcome new patients and look forward to serving you. Contact us today to schedule an appointment or to learn more about our services:</p>
+            <ul class="list-disc list-inside text-gray-700 mb-4">
+                <li>Phone: (123) 456-7890</li>
+                <li>Email: info@dereliefdentalclinic.com</li>
+                <li>Address: 123 Smile Street, Happyville, CA 12345</li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('menu-button').addEventListener('click', function () {
+            var menu = document.getElementById('mobile-menu');
+            var hamburgerIcon = document.getElementById('hamburger-icon');
+            var closeIcon = document.getElementById('close-icon');
+            menu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
