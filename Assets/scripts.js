@@ -1,11 +1,20 @@
-// Preloader
-window.addEventListener('load', function() {
-    const preloader = document.querySelector('.preloader');
-    preloader.classList.add('hidden');
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        const preloader = document.querySelector(".preloader");
+        preloader.classList.add("hidden");
+    }, 3000);
 });
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+ // Form submission (for demonstration purposes)
+ const form = document.getElementById('contact-form');
+if (form) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Form submitted! In a real application, this would be sent to a server.');
+    });
+}
+ // Smooth scrolling for navigation links
+ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         document.querySelector(this.getAttribute('href')).scrollIntoView({
@@ -15,20 +24,41 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Mobile menu toggle
-const menuToggle = document.getElementById('menu-toggle');
-const mobileMenu = document.getElementById('mobile-menu');
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
-menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
+menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+    menuToggle.classList.toggle("open");
 });
 
-// Scroll shadow effect
-window.addEventListener('scroll', () => {
-    const header = document.getElementById('header');
-    if (window.scrollY > 0) {
-        header.classList.add('shadow-lg');
+mobileNavLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuToggle.classList.remove("open");
+    });
+});
+
+// Scroll shadow effect and navbar color change
+const header = document.getElementById("header");
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        header.classList.add("scrolled");
     } else {
-        header.classList.remove('shadow-lg');
+        header.classList.remove("scrolled");
+    }
+});
+  // Dark mode toggle
+  const darkModeToggle = document.getElementById('dark-mode-toggle');
+const body = document.body;
+
+darkModeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    if (body.classList.contains('dark')) {
+        darkModeToggle.innerHTML = '<i class="fas fa-sun text-2xl text-yellow-400"></i>';
+    } else {
+        darkModeToggle.innerHTML = '<i class="fas fa-moon text-2xl"></i>';
     }
 });
 
@@ -44,4 +74,35 @@ const observer = new IntersectionObserver((entries) => {
 
 fadeElements.forEach(element => {
     observer.observe(element);
+});
+
+// Horizontal scroll for services and portfolio sections
+const scrollContainers = document.querySelectorAll('.overflow-x-auto');
+
+scrollContainers.forEach(container => {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    container.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+    });
+
+    container.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    container.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    container.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 2;
+        container.scrollLeft = scrollLeft - walk;
+    });
 });

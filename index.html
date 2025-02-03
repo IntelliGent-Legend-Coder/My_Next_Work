@@ -6,104 +6,172 @@
     <title>Dr. Souvik Parbat - Dental Surgeon</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a","950":"#172554"}
+                    }
+                },
+                fontFamily: {
+                    'body': [
+                        'Poppins', 
+                        'ui-sans-serif', 
+                        'system-ui', 
+                        '-apple-system', 
+                        'system-ui', 
+                        'Segoe UI', 
+                        'Roboto', 
+                        'Helvetica Neue', 
+                        'Arial', 
+                        'Noto Sans', 
+                        'sans-serif', 
+                        'Apple Color Emoji', 
+                        'Segoe UI Emoji', 
+                        'Segoe UI Symbol', 
+                        'Noto Color Emoji'
+                    ],
+                    'sans': [
+                        'Poppins', 
+                        'ui-sans-serif', 
+                        'system-ui', 
+                        '-apple-system', 
+                        'system-ui', 
+                        'Segoe UI', 
+                        'Roboto', 
+                        'Helvetica Neue', 
+                        'Arial', 
+                        'Noto Sans', 
+                        'sans-serif', 
+                        'Apple Color Emoji', 
+                        'Segoe UI Emoji', 
+                        'Segoe UI Symbol', 
+                        'Noto Color Emoji'
+                    ]
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="Assets/styles2.css">
 </head>
 <body class="bg-gray-100">
     <div class="preloader">
-        <div class="loader"></div>
+        <div class="loader">
+            <i class="fas fa-tooth fa-spin"></i>
+        </div>
     </div>
-    
-    <header class="bg-white fixed top-0 left-0 right-0 z-50 transition-shadow duration-300" id="header">
+
+    <header class="bg-transparent fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="header">
         <nav class="container mx-auto px-6 py-3">
-            <div class="flex justify-between items-center">
-                <a href="#" class="text-2xl font-bold text-blue-600">Dr. Souvik Parbat</a>
+            <div id="content" class="flex justify-between items-center">
+                <a href="#" id="logo" class="text-2xl font-bold text-white">Dr. Souvik Parbat</a>
                 <div class="hidden md:flex space-x-4">
-                    <a href="About_testing.html" class="nav-link text-gray-800 hover:text-blue-600">About</a>
-                    <a href="#services" class="nav-link text-gray-800 hover:text-blue-600">Services</a>
-                    <a href="#portfolio" class="nav-link text-gray-800 hover:text-blue-600">Portfolio</a>
-                    <a href="#testimonials" class="nav-link text-gray-800 hover:text-blue-600">Testimonials</a>
-                    <a href="#contact" class="nav-link text-gray-800 hover:text-blue-600">Contact</a>
+                    <a href="#about" class="nav-link text-white hover:text-blue-300 font-semibold active" style="font-size: 20px;">Home</a>
+                    <a href="#about" class="nav-link text-white hover:text-blue-300 font-semibold" style="font-size: 20px;">About</a>
+                    <a href="./Assets/services3.html" class="nav-link text-white hover:text-blue-300 font-semibold" style="font-size: 20px;">Services</a>
+                    <a href="#portfolio" class="nav-link text-white hover:text-blue-300 font-semibold" style="font-size: 20px;">Our surgeries</a>
+                    <a href="#testimonials" class="nav-link text-white hover:text-blue-300 font-semibold" style="font-size: 20px;">Testimonials</a>
+                    <a href="#contact" class="nav-link text-white hover:text-blue-300 font-semibold" style="font-size: 20px;">Contact</a>
                 </div>
-                <button class="md:hidden" id="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <div class="flex items-center">
+                    <button id="dark-mode-toggle" class="text-white p-2 rounded-full ml-4 transition-transform duration-500 ease-in-out hover:rotate-180">
+                        <i class="fas fa-moon text-2xl"></i>
+                    </button>
+                    <button id="menu-toggle" class="md:hidden text-white hamburger z-30">
+                        <span class="hamburger-top"></span>
+                        <span class="hamburger-middle"></span>
+                        <span class="hamburger-bottom"></span>
+                    </button>
+                </div>
             </div>
         </nav>
-        <div class="md:hidden hidden" id="mobile-menu">
-            <a href="About_testing.html" class="block py-2 px-4 text-sm hover:bg-gray-200">About</a>
-            <a href="#services" class="block py-2 px-4 text-sm hover:bg-gray-200">Services</a>
-            <a href="#portfolio" class="block py-2 px-4 text-sm hover:bg-gray-200">Portfolio</a>
-            <a href="#testimonials" class="block py-2 px-4 text-sm hover:bg-gray-200">Testimonials</a>
-            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-200">Contact</a>
+        <div id="mobile-menu" class="fixed inset-0 bg-opacity-50 backdrop-blur-md bg-gray-800 hidden md:hidden">
+            <div class="h-full flex flex-col justify-center items-center space-y-8">
+                <a href="#home" class="mobile-nav-link text-white text-2xl hover:text-blue-300 font-semibold active">Home</a>
+                <a href="#about" class="mobile-nav-link text-white text-2xl hover:text-blue-300 font-semibold">About</a>
+                <a href="#services" class="mobile-nav-link text-white text-2xl hover:text-blue-300 font-semibold">Services</a>
+                <a href="#portfolio" class="mobile-nav-link text-white text-2xl hover:text-blue-300 font-semibold">Our Surgeries</a>
+                <a href="#testimonials" class="mobile-nav-link text-white text-2xl hover:text-blue-300 font-semibold">Testimonials</a>
+                <a href="#contact" class="mobile-nav-link text-white text-2xl hover:text-blue-300 font-semibold">Contact</a>
+            </div>
         </div>
     </header>
-    
+
     <main>
-        <section id="hero" class="hero-bg h-screen flex items-center">
-            <div class="container mx-auto px-6">
-                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 fade-in">Dr. Souvik Parbat</h1>
-                <p class="text-xl md:text-2xl text-white mb-8 fade-in">Expert Dental Surgeon | Transforming Smiles</p>
-                <a href="#contact" class="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition duration-300 fade-in">Book an Appointment</a>
+        <section id="hero" class="hero-bg h-screen flex items-center relative">
+            <div class="container mx-auto px-6 relative z-10 hero-content text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Welcome to Dr. Souvik Parbat's Dental Clinic</h1>
+                <p class="text-xl md:text-2xl text-white mb-8">Expert Dental Surgeon | Transforming Smiles</p>
+                <p class="text-xl text-white mb-8">Providing expert dental care with a gentle touch</p>
+                <a href="#contact" class="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-800 text-xl transition duration-300 btn-hover" style="padding: 13px;">Book an Appointment</a>
             </div>
         </section>
-    
-        <section id="about" class="py-20">
+
+        <section id="about" class="py-20 bg-white dark:bg-gray-800">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-8 fade-in">About Dr. Souvik Parbat</h2>
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="md:w-1/2 mb-6 md:mb-0 fade-in">
-                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dr. Jane Doe" class="rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold text-center mb-8 text-gray-800 fade-in dark:text-white">About Dr. Souvik Parbat</h2>
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="md:w-1/2 mb-8 md:mb-0 fade-in">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dr. Jane Doe" class="rounded-lg shadow-lg w-full h-auto">
                     </div>
-                    <div class="md:w-1/2 md:pl-10 fade-in">
-                        <p class="text-gray-700 mb-4">Dr. Jane Doe is a highly skilled and compassionate dental surgeon with over 15 years of experience. She specializes in cosmetic dentistry, dental implants, and oral surgery.</p>
-                        <p class="text-gray-700 mb-4">Dr. Doe received her Doctor of Dental Surgery degree from Harvard School of Dental Medicine and completed her residency at Johns Hopkins Hospital.</p>
-                        <p class="text-gray-700">Her mission is to provide exceptional dental care while ensuring patient comfort and satisfaction.</p>
+                    <div class="md:w-1/2 md:pl-12 fade-in">
+                        <h3 class="text-2xl font-semibold mb-4 dark:text-gray-300 mb-4">Passionate About Dental Health</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">Dr. Souvik Parbat is a highly skilled and compassionate dental surgeon with over 15 years of experience. She specializes in cosmetic dentistry, dental implants, and oral surgery, dedicated to providing exceptional care to her patients.</p>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">After receiving her Doctor of Dental Surgery degree from Harvard School of Dental Medicine, Dr. Doe completed her residency at Johns Hopkins Hospital, honing her skills in advanced dental procedures.</p>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">Dr. Parbat's mission is to transform smiles and improve the overall oral health of her patients. She believes in a patient-centered approach, ensuring that each individual receives personalized care tailored to their unique needs.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-blue-600 text-white dark:text-white py-2 px-6 rounded-full hover:bg-blue-700 dark:hover:bg-blue-800 transition duration-300 btn-hover">Download CV</a>
+                            <a href="#contact" class="bg-gray-700 text-white dark:text-white py-2 px-6 rounded-full hover:bg-gray-900 dark:hover:bg-gray-700 transition duration-300 btn-hover">Get in Touch</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-    
-        <section id="services" class="bg-gray-200 py-20">
+
+        <section id="services" class="bg-gray-200 py-20 dark:bg-gray-800">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12 fade-in">Our Services</h2>
+                <h2 class="text-3xl font-bold text-center mb-12 fade-in dark:text-white">Our Services</h2>
                 <div class="flex overflow-x-auto no-scrollbar pb-4 space-x-6 fade-in">
-                    <div class="bg-white rounded-lg shadow-lg p-6 flex-shrink-0 w-64">
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex-shrink-0 w-64 dark:bg-gray-700">
                         <i class="fas fa-tooth text-4xl text-blue-600 mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Cosmetic Dentistry</h3>
-                        <p class="text-gray-700">Enhance your smile with our advanced cosmetic dental procedures.</p>
+                        <h3 class="text-xl font-semibold mb-2 dark:text-white">Cosmetic Dentistry</h3>
+                        <p class="text-gray-700 dark:text-white">Enhance your smile with our advanced cosmetic dental procedures.</p>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg p-6 flex-shrink-0 w-64">
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex-shrink-0 w-64 dark:bg-gray-700">
                         <i class="fas fa-teeth-open text-4xl text-blue-600 mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Dental Implants</h3>
-                        <p class="text-gray-700">Restore your natural smile with our high-quality dental implants.</p>
+                        <h3 class="text-xl font-semibold mb-2 dark:text-white">Dental Implants</h3>
+                        <p class="text-gray-700 dark:text-white">Restore your natural smile with our high-quality dental implants.</p>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg p-6 flex-shrink-0 w-64">
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex-shrink-0 w-64 dark:bg-gray-700">
                         <i class="fas fa-user-md text-4xl text-blue-600 mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Oral Surgery</h3>
-                        <p class="text-gray-700">Expert oral surgery services for complex dental issues.</p>
+                        <h3 class="text-xl font-semibold mb-2 dark:text-white">Oral Surgery</h3>
+                        <p class="text-gray-700 dark:text-white">Expert oral surgery services for complex dental issues.</p>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg p-6 flex-shrink-0 w-64">
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex-shrink-0 w-64 dark:bg-gray-700">
                         <i class="fas fa-teeth text-4xl text-blue-600 mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Orthodontics</h3>
-                        <p class="text-gray-700">Straighten your teeth with our advanced orthodontic treatments.</p>
+                        <h3 class="text-xl font-semibold mb-2 dark:text-white">Orthodontics</h3>
+                        <p class="text-gray-700 dark:text-white">Straighten your teeth with our advanced orthodontic treatments.</p>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg p-6 flex-shrink-0 w-64">
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex-shrink-0 w-64 dark:bg-gray-700">
                         <i class="fas fa-smile-beam text-4xl text-blue-600 mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Teeth Whitening</h3>
-                        <p class="text-gray-700">Brighten your smile with our professional teeth whitening services.</p>
+                        <h3 class="text-xl font-semibold mb-2 dark:text-white">Teeth Whitening</h3>
+                        <p class="text-gray-700 dark:text-white">Brighten your smile with our professional teeth whitening services.</p>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg p-6 flex-shrink-0 w-64">
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex-shrink-0 w-64 dark:bg-gray-700">
                         <i class="fas fa-hand-holding-medical text-4xl text-blue-600 mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Preventive Care</h3>
-                        <p class="text-gray-700">Maintain optimal oral health with our preventive care programs.</p>
+                        <h3 class="text-xl font-semibold mb-2 dark:text-white">Preventive Care</h3>
+                        <p class="text-gray-700 dark:text-white">Maintain optimal oral health with our preventive care programs.</p>
                     </div>
                 </div>
             </div>
         </section>
-    
-        <section id="portfolio" class="py-20">
+
+         <!-- Portfolio section (corrected) -->
+         <section id="portfolio" class="py-20 dark:bg-gray-800">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12 fade-in">Portfolio</h2>
+                <h2 class="text-3xl font-bold text-center mb-12 fade-in dark:text-white">Our Surgeries</h2>
                 <div class="flex overflow-x-auto no-scrollbar pb-4 space-x-6 fade-in">
                     <div class="portfolio-item rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-64">
                         <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Work 1" class="w-full h-48 object-cover">
@@ -130,102 +198,112 @@
                         <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Work 4" class="w-full h-48 object-cover">
                         <div class="portfolio-caption">
                             <h3 class="text-lg font-semibold mb-2">Orthodontics</h3>
-                    <p>Clear aligner treatment for straighter teeth</p>
-                </div>
-            </div>
-            <div class="portfolio-item rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-64">
-                <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Work 5" class="w-full h-48 object-cover">
-                <div class="portfolio-caption">
-                    <h3 class="text-lg font-semibold mb-2">Gum Contouring</h3>
-                    <p>Aesthetic gum reshaping procedure</p>
-                </div>
-            </div>
-            <div class="portfolio-item rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-64">
-                <img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Work 6" class="w-full h-48 object-cover">
-                <div class="portfolio-caption">
-                    <h3 class="text-lg font-semibold mb-2">Smile Design</h3>
-                    <p>Digital smile makeover planning</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    </section>
-    
-    <section id="testimonials" class="bg-gray-200 py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Testimonials</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
-                <div class="bg-white rounded-lg shadow-lg p-6 testimonial">
-                    <p class="text-gray-700 mb-4">"Dr. Jane Doe is an exceptional dental surgeon. Her expertise and gentle approach made my dental implant procedure a breeze!"</p>
-                    <p class="font-semibold">- John Smith</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg p-6 testimonial">
-                    <p class="text-gray-700 mb-4">"I couldn't be happier with my new smile! Dr. Doe's cosmetic dentistry skills are truly remarkable."</p>
-                    <p class="font-semibold">- Sarah Johnson</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg p-6 testimonial">
-                    <p class="text-gray-700 mb-4">"The entire team at Dr. Doe's office is fantastic. They made me feel comfortable throughout my orthodontic treatment."</p>
-                    <p class="font-semibold">- Michael Brown</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg p-6 testimonial">
-                    <p class="text-gray-700 mb-4">"I've been coming to Dr. Doe for years, and I wouldn't trust anyone else with my dental care. Her attention to detail is unmatched."</p>
-                    <p class="font-semibold">- Emily Davis</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg p-6 testimonial">
-                    <p class="text-gray-700 mb-4">"Dr. Doe's preventive care program has kept my teeth healthy and strong. I haven't had a cavity in years!"</p>
-                    <p class="font-semibold">- David Wilson</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg p-6 testimonial">
-                    <p class="text-gray-700 mb-4">"The teeth whitening treatment I received from Dr. Doe gave me the confidence to smile again. I'm so grateful!"</p>
-                    <p class="font-semibold">- Lisa Thompson</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="contact" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Contact Us</h2>
-            <div class="max-w-md mx-auto fade-in">
-                <form>
-                    <div class="mb-4">
-                        <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
-                        <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                            <p>Clear aligner treatment for straighter teeth</p>
+                        </div>
                     </div>
-                    <div class="mb-4">
-                        <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                    <div class="portfolio-item rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-64">
+                        <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Work 5" class="w-full h-48 object-cover">
+                        <div class="portfolio-caption">
+                            <h3 class="text-lg font-semibold mb-2">Gum Contouring</h3>
+                            <p>Aesthetic gum reshaping procedure</p>
+                        </div>
                     </div>
-                    <div class="mb-4">
-                        <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
-                        <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required></textarea>
+                    <div class="portfolio-item rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-64">
+                        <img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Work 6" class="w-full h-48 object-cover">
+                        <div class="portfolio-caption">
+                            <h3 class="text-lg font-semibold mb-2">Smile Design</h3>
+                            <p>Digital smile makeover planning</p>
+                        </div>
                     </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">Send Message</button>
-                </form>
+                </div>
             </div>
-        </div>
-    </section>
-    </main>
-    
-    <footer class="bg-gray-800 text-white py-8">
-    <div class="container mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-4 md:mb-0">
-                <h3 class="text-2xl font-bold">Dr. Souvik Parbat</h3>
-                <p>Expert Dental Surgeon</p>
-            </div>
-            <div class="flex space-x-4">
-                <a href="#" class="hover:text-blue-400"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="hover:text-blue-400"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="hover:text-blue-400"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-        <hr class="border-gray-700 my-8">
-        <p class="text-center">&copy; 2023 Dr. Souvik Parbat. All rights reserved.</p>
-    </div>
-    </footer>
+        </section>
 
+        <section id="testimonials" class="bg-gray-200 py-20 dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 fade-in dark:text-white">Testimonials</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
+                    <div class="bg-white rounded-lg shadow-lg p-6 testimonial dark:bg-gray-700">
+                        <p class="text-gray-700 mb-4 dark:text-white">"Dr. Jane Doe is an exceptional dental surgeon. Her expertise and gentle approach made my dental implant procedure a breeze!"</p>
+                        <p class="font-semibold dark:text-white">- John Smith</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 testimonial dark:bg-gray-700">
+                        <p class="text-gray-700 mb-4 dark:text-white">"I couldn't be happier with my new smile! Dr. Doe's cosmetic dentistry skills are truly remarkable."</p>
+                        <p class="font-semibold dark:text-white">- Sarah Johnson</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 testimonial dark:bg-gray-700">
+                        <p class="text-gray-700 mb-4 dark:text-white">"The entire team at Dr. Doe's office is fantastic. They made me feel comfortable throughout my orthodontic treatment."</p>
+                        <p class="font-semibold dark:text-white">- Michael Brown</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 testimonial dark:bg-gray-700">
+                        <p class="text-gray-700 mb-4 dark:text-white">"I've been coming to Dr. Doe for years, and I wouldn't trust anyone else with my dental care. Her attention to detail is unmatched."</p>
+                        <p class="font-semibold dark:text-white">- Emily Davis</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 testimonial dark:bg-gray-700">
+                        <p class="text-gray-700 mb-4 dark:text-white">"Dr. Doe's preventive care program has kept my teeth healthy and strong. I haven't had a cavity in years!"</p>
+                        <p class="font-semibold dark:text-white">- David Wilson</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 testimonial dark:bg-gray-700">
+                        <p class="text-gray-700 mb-4 dark:text-white">"The teeth whitening treatment I received from Dr. Doe gave me the confidence to smile again. I'm so grateful!"</p>
+                        <p class="font-semibold dark:text-white">- Lisa Thompson</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+               <!-- Contact Section -->
+               <section id="contact" class="py-20 dark:bg-gray-700">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-3xl font-bold text-center mb-12">Contact Us</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4">Office Hours</h3>
+                            <p class="text-gray-600 mb-2 dark:text-white">Monday - Friday: 9am - 5pm</p>
+                            <p class="text-gray-600 mb-2 dark:text-white">Saturday: 10am - 2pm</p>
+                            <p class="text-gray-600 dark:text-white">Sunday: Closed</p>
+                            <h3 class="text-xl font-semibold mt-8 mb-4">Contact Information</h3>
+                            <p class="text-gray-600 mb-2 dark:text-white">Phone: (123) 456-7890</p>
+                            <p class="text-gray-600 mb-2 dark:text-white">Email: info@drjanedoe.com</p>
+                            <p class="text-gray-600 dark:text-white">Address: 123 Dental St, Cityville, State 12345</p>
+                        </div>
+                        <form id="contact-form" action="./Assets/Process.html">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                            </div>
+                            <button type="submit" class="bg-blue-600 text-white py-2 px-6 rounded-md hover:bg-blue-700 transition duration-300">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+    </main>
+
+    <footer class="bg-gray-800 dark:bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold">Dr. Jane Doe</h3>
+                    <p>Expert Dental Surgeon</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-blue-400" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-blue-400" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-blue-400" style="font-size: 23px;"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-blue-400" style="font-size: 23px;"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <hr class="border-gray-700 my-8">
+            <p class="text-center">&copy; 2025 Dr. Jane Doe. All rights reserved.</p>
+        </div>
+    </footer>
     <script src="Assets/scripts.js"></script>
 </body>
 </html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Jane Doe - Dental Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+        .nav-link::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.6s;
+        }
+        .nav-link:hover::before {
+            left: 100%;
+        }
+        .nav-link:hover {
+            color: #3182ce;
+            text-shadow: 0 0 10px rgba(49, 130, 206, 0.5);
+            transform: translateY(-2px);
+        }
+        #header {
+            transition: all 0.3s ease;
+        }
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: all 0.25s;
+            position: relative;
+        }
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            top: 0;
+            left: 0;
+            background: #1a202c;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+        .open {
+            transform: rotate(90deg);
+        }
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+        .open .hamburger-middle {
+            display: none;
+        }
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
+        .dark .hamburger-top,
+        .dark .hamburger-middle,
+        .dark .hamburger-bottom {
+            background: #e2e8f0;
+        }
+        #dark-mode-toggle {
+            transition: transform 0.5s ease-in-out;
+        }
+        #dark-mode-toggle:hover {
+            transform: rotate(180deg);
+        }
+        .dark {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .dark #header {
+            background-color: rgba(26, 32, 44, 0.95);
+        }
+        .dark .bg-white {
+            background-color: #2d3748;
+        }
+        .dark .text-gray-700 {
+            color: #e2e8f0;
+        }
+        .dark .bg-gray-100 {
+            background-color: #2d3748;
+        }
+        .dark .bg-blue-600 {
+            background-color: #4299e1;
+        }
+        .dark .hover\:bg-blue-700:hover {
+            background-color: #3182ce;
+        }
+        .service-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.6s;
+        }
+        .service-card:hover::before {
+            left: 100%;
+        }
+        .service-card img {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover img {
+            transform: scale(1.1);
+        }
+        .service-card .service-content {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover .service-content {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        .dark .service-card:hover .service-content {
+            background-color: rgba(45, 55, 72, 0.9);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-800 shadow-md">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">Dr. Jane Doe</a>
+                <div class="hidden md:flex space-x-4 items-center">
+                    <a href="index.html" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300">Home</a>
+                    <a href="#" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300">About</a>
+                    <a href="#" class="nav-link text-blue-600 dark:text-blue-400 font-semibold">Services</a>
+                    <a href="#" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300">Testimonials</a>
+                    <a href="#" class="nav-link text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300">Contact</a>
+                    <button id="dark-mode-toggle" class="text-gray-800 dark:text-gray-200 p-2 rounded-full ml-4 transition-transform duration-500 ease-in-out hover:rotate-180">
+                        <i class="fas fa-moon text-2xl"></i>
+                    </button>
+                </div>
+                <button id="menu-toggle" class="md:hidden text-gray-800 dark:text-gray-200 hamburger z-30">
+                    <span class="hamburger-top"></span>
+                    <span class="hamburger-middle"></span>
+                    <span class="hamburger-bottom"></span>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="fixed inset-0 bg-white bg-opacity-95 dark:bg-gray-800 dark:bg-opacity-95 hidden md:hidden">
+            <div class="h-full flex flex-col justify-center items-center space-y-8">
+                <a href="index.html" class="text-2xl text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300">Home</a>
+                <a href="#" class="text-2xl text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300">About</a>
+                <a href="#" class="text-2xl text-blue-600 dark:text-blue-400 font-semibold">Services</a>
+                <a href="#" class="text-2xl text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300">Testimonials</a>
+                <a href="#" class="text-2xl text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 mt-20">
+        <h1 class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">Our Comprehensive Dental Services</h1>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Routine Check-ups" class="w-full h-48 object-cover">
+                <div class="service-content p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Routine Check-ups and Cleanings</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Regular dental check-ups and professional cleanings are the cornerstone of maintaining optimal oral health. Our comprehensive check-ups involve a thorough examination of your teeth, gums, and oral tissues to detect any potential issues early on. We use state-of-the-art diagnostic tools, including digital X-rays, to identify problems that may not be visible to the naked eye. Our skilled hygienists perform professional cleanings to remove plaque and tartar buildup, helping to prevent tooth decay and gum disease. During these appointments, we also provide personalized oral hygiene instructions and nutritional advice to help you maintain a healthy smile between visits. We recommend scheduling check-ups and cleanings every six months for most patients, although some may require more frequent visits based on their individual needs. By prioritizing preventive care, we aim to help you avoid more complex and costly dental procedures in the future, ensuring your smile stays healthy and bright for years to come.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Fillings and Restorations" class="w-full h-48 object-cover">
+                <div class="service-content p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Fillings and Restorations</h3>
+                    <p class="text-gray-700 dark:text-gray-300">When tooth decay occurs, it's crucial to address it promptly to prevent further damage. Our dental practice offers high-quality fillings and restorations to repair cavities and restore the function and appearance of affected teeth. We use modern, tooth-colored composite materials that blend seamlessly with your natural teeth, providing a durable and aesthetically pleasing result. The procedure begins with the removal of the decayed portion of the tooth, followed by careful cleaning and preparation of the area. We then apply the filling material in layers, shaping and polishing it to match your tooth's natural contours. In addition to treating new cavities, we also offer services to replace old, worn-out fillings that may be failing or contain mercury. For more extensive damage, we provide inlays, onlays, and crowns to restore larger portions of teeth. Our goal is not only to eliminate decay but also to strengthen the tooth and prevent future problems, ensuring your smile remains healthy and functional.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
+                <img src="gum-disease.png" alt="Gum Disease Treatment" class="w-full h-48 object-cover">
+                <div class="service-content p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Gum Disease Treatment</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Gum disease, also known as periodontal disease, is a common but serious condition that can lead to tooth loss if left untreated. Our practice offers comprehensive gum disease treatment, starting with thorough cleanings to remove plaque and tartar buildup below the gum line. For early-stage gum disease (gingivitis), we perform scaling and root planing, a deep cleaning procedure that removes bacteria and smooths the root surfaces to promote healing and reattachment of the gums to the teeth. In more advanced cases, we may recommend additional treatments such as local antibiotic therapy, gum grafting, or osseous surgery to restore gum health. We also provide ongoing maintenance and support to prevent the recurrence of gum disease, including personalized home care instructions and more frequent professional cleanings. Our team is committed to helping you achieve and maintain healthy gums, which is essential not only for your oral health but also for your overall well-being, as gum disease has been linked to various systemic health issues.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1445527815219-ecbfec67492e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Teeth Whitening" class="w-full h-48 object-cover">
+                <div class="service-content p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Teeth Whitening</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Our professional teeth whitening treatments are designed to brighten your smile and boost your confidence. We offer both in-office and take-home whitening options to suit your preferences and lifestyle. Our in-office treatment uses advanced whitening technology and high-concentration bleaching gels to provide dramatic results in just one visit. The procedure is safe, comfortable, and supervised by our experienced dental team. For those who prefer to whiten at home, we provide custom-fitted whitening trays and professional-grade whitening gel. This option allows you to gradually achieve a brighter smile at your own pace. Before any whitening treatment, we conduct a thorough examination to ensure your teeth and gums are healthy and to determine the cause of any discoloration. We also discuss your expectations and help you choose the most suitable whitening method. Our teeth whitening services can effectively remove stains caused by coffee, tea, wine, tobacco, and aging, revealing a more youthful and radiant smile.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1541604193435-22287d32c2c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Implants" class="w-full h-48 object-cover">
+                <div class="service-content p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Dental Implants</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Dental implants are a revolutionary solution for replacing missing teeth, offering a permanent, natural-looking alternative to dentures or bridges. Our state-of-the-art implant procedures can restore your smile's appearance and functionality. The process begins with a comprehensive evaluation, including 3D imaging, to assess your oral health and determine if you're a suitable candidate for implants. The implant itself is a small titanium post surgically placed into the jawbone, acting as an artificial tooth root. Over several months, the implant fuses with the bone in a process called osseointegration, providing a stable foundation for the replacement tooth. Once healing is complete, we attach a custom-made crown that matches your natural teeth in color, shape, and size. Dental implants not only restore your smile but also help maintain facial structure, prevent bone loss, and allow you to eat, speak, and smile with confidence. With proper care, implants can last a lifetime, making them an excellent long-term investment in your oral health and overall well-being.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Orthodontics" class="w-full h-48 object-cover">
+                <div class="service-content p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Orthodontics</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Our comprehensive orthodontic treatments are designed to straighten teeth, correct bite issues, and enhance overall oral health. We offer a range of options suitable for patients of all ages, from traditional braces to modern clear aligner systems. Traditional metal braces remain an effective and economical choice for many patients, especially for complex cases. We also provide ceramic braces, which blend with the natural color of your teeth for a more discreet appearance. For those seeking a nearly invisible option, we offer clear aligner therapy, such as Invisalign®. These custom-made, removable trays gradually shift your teeth into the desired position, offering convenience and flexibility. Our orthodontic treatment plans are tailored to each patient's unique needs and goals. We use advanced 3D imaging and treatment planning software to visualize the expected outcome and create a precise roadmap for your smile transformation. Regular check-ups throughout the treatment ensure progress is on track and allow for any necessary adjustments. Beyond aesthetics, orthodontic treatment can improve bite function, make oral hygiene easier, and potentially alleviate issues like TMJ disorders.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Cosmetic Dentistry" class="w-full h-48 object-cover">
+                <div class="service-content p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Cosmetic Dentistry</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Our cosmetic dentistry services are designed to enhance the appearance of your smile while maintaining optimal oral health. We offer a wide range of treatments to address various aesthetic concerns, including discoloration, misalignment, chips, gaps, and more. Porcelain veneers are a popular option for dramatically transforming your smile. These ultra-thin shells are custom-made to fit over the front surface of your teeth, instantly improving their color, shape, size, and overall appearance. For minor imperfections, we offer dental bonding, a quick and affordable procedure using tooth-colored composite resin to repair chips, close small gaps, or reshape teeth. Tooth contouring and reshaping can subtly alter the length, shape, or surface of teeth to improve their appearance. We also provide professional teeth whitening for a brighter, more youthful smile. For those seeking a complete smile makeover, we combine multiple cosmetic procedures to achieve a harmonious and beautiful result. Our approach to cosmetic dentistry is conservative and personalized, always prioritizing the health and integrity of your natural teeth while helping you achieve the smile of your dreams.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Root Canal Therapy" class="w-full h-48 object-cover">
+                <div class="service-content p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Root Canal Therapy</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Root canal therapy is a crucial procedure that can save a severely damaged or infected tooth from extraction. Despite its reputation, modern root canal treatments are typically painless and highly effective. The process begins with a thorough examination and X-rays to assess the extent of the damage. We then use local anesthesia to ensure your comfort throughout the procedure. The infected pulp is carefully removed from the tooth's interior, and the root canals are cleaned, shaped, and disinfected. The space is then filled with a biocompatible material and sealed to prevent future infection. In most cases, we recommend placing a crown on the treated tooth to restore its strength and function. Our use of advanced techniques and equipment, such as rotary endodontic tools and 3D imaging, allows for more precise and efficient treatments. After the procedure, you may experience some sensitivity, but this typically subsides within a few days. Root canal therapy not only alleviates pain but also helps maintain your natural tooth, preventing the need for extraction and more extensive dental work in the future.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
+                <img src="pediatric.png" alt="Pediatric Dentistry" class="w-full h-48 object-cover">
+                <div class="service-content p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Pediatric Dentistry</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Our pediatric dentistry services are specially designed to cater to the unique oral health needs of children from infancy through adolescence. We create a friendly, welcoming environment to help children feel comfortable and develop positive associations with dental care. Our comprehensive pediatric services include regular check-ups and cleanings, fluoride treatments, and dental sealants to prevent cavities. We also provide guidance on proper brushing and flossing techniques, as well as nutritional advice to promote healthy teeth and gums. For children with cavities, we offer gentle and efficient treatments using kid-friendly equipment and techniques. We're experienced in handling dental emergencies specific to children, such as knocked-out teeth or dental injuries from sports. Our team is trained to work with children who have special needs or dental anxiety, ensuring that every child receives the care they need in a supportive environment. We also focus on early orthodontic evaluations to identify and address potential alignment issues before they become more serious. By fostering good oral health habits early on, we aim to set the foundation for a lifetime of healthy smiles.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Crowns" class="w-full h-48 object-cover">
+                <div class="service-content p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Dental Crowns</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Dental crowns are versatile restorations used to protect and strengthen damaged teeth while improving their appearance. We offer a variety of crown materials, including porcelain, ceramic, and porcelain-fused-to-metal, each with its own benefits suited to different situations. The process begins with a thorough examination and preparation of the tooth, which may involve removing decay, performing a root canal, or building up the core of the tooth. We then take precise digital impressions to ensure a perfect fit. While your custom crown is being fabricated in a dental laboratory, we provide a temporary crown to protect your tooth. Once your permanent crown is ready, we carefully place and adjust it to ensure proper fit, bite, and appearance. Our crowns are designed to blend seamlessly with your natural teeth, restoring both function and aesthetics. They can be used to cover misshapen or severely discolored teeth, protect weak teeth from fracturing, restore already fractured teeth, or cover dental implants. With proper care, including good oral hygiene and regular dental check-ups, your crown can last for many years, providing long-lasting protection and beauty for your smile.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Bridges" class="w-full h-48 object-cover">
+                <div class="service-content p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Dental Bridges</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Dental bridges are an excellent solution for replacing one or more missing teeth, restoring your smile's appearance and functionality. We offer several types of bridges, including traditional, cantilever, and Maryland bonded bridges, each suited to different situations. The most common type, the traditional bridge, consists of one or more artificial teeth (pontics) held in place by dental crowns on each side. The process begins with preparing the adjacent teeth to receive crowns. We then take detailed impressions to ensure a precise fit for your custom-made bridge. While your permanent bridge is being crafted, we provide a temporary bridge to protect your prepared teeth and maintain your smile. Once your custom bridge is ready, we carefully place and adjust it to ensure proper fit, bite, and appearance. Our bridges are made from high-quality materials that mimic the look and function of natural teeth, seamlessly blending with your smile. Beyond aesthetics, bridges help maintain the shape of your face, prevent remaining teeth from drifting out of position, and restore your ability to speak and eat properly. With good oral hygiene and regular dental check-ups, your bridge can last for many years, providing a long-term solution for missing teeth.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dentures" class="w-full h-48 object-cover">
+                <div class="service-content p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Dentures</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Our custom-fitted dentures provide a reliable solution for replacing multiple missing teeth or full arches. We offer both full and partial dentures, designed to restore your smile's appearance and functionality. Full dentures are used when all teeth in an arch need to be replaced, while partial dentures fill in gaps where some natural teeth remain. The process begins with a thorough examination and discussion of your needs and preferences. We take precise measurements and impressions to ensure your dentures fit comfortably and look natural. For immediate dentures, we can provide a temporary set on the same day your teeth are extracted, allowing you to leave our office with a complete smile. As your mouth heals and changes shape, we provide adjustments and eventually create your permanent dentures for optimal fit and comfort. Our dentures are crafted from high-quality materials that closely resemble natural teeth and gums, ensuring a natural-looking smile. We also offer implant-supported dentures for increased stability and comfort, eliminating the need for adhesives. Throughout the process, we provide guidance on proper denture care and maintenance to help you adjust to your new teeth and keep them in excellent condition. Regular check-ups allow us to assess the fit of your dentures and make any necessary adjustments, ensuring long-term comfort and functionality.
+                </p>
+                </div>
+            </div>
+            <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Dental Sealants" class="w-full h-48 object-cover">
+                <div class="service-content p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Dental Sealants</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Dental sealants are a preventive treatment designed to protect teeth, particularly molars and premolars, from decay. This simple, painless procedure involves applying a thin, protective coating to the chewing surfaces of the back teeth, where decay often begins. The sealant material flows into the deep grooves and pits of the tooth, creating a smooth surface that's easier to clean and less likely to trap food particles and bacteria. The application process is quick and comfortable, typically taking only a few minutes per tooth. First, the tooth is thoroughly cleaned and dried. Then, a special gel is applied to roughen the tooth surface, allowing the sealant to bond effectively. After rinsing and drying the tooth again, we apply the sealant material and use a special light to harden it. Sealants are most commonly recommended for children and teenagers, as soon as their permanent molars come in, but adults can also benefit from this preventive measure. With proper care, sealants can last for several years, providing long-term protection against cavities. During regular check-ups, we assess the condition of your sealants and reapply them if necessary, ensuring continuous protection for your teeth.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Emergency Dental Care" class="w-full h-48 object-cover">
+                <div class="service-content p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Emergency Dental Care</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Our emergency dental care services are designed to provide prompt and effective treatment for unexpected dental issues and injuries. We understand that dental emergencies can be painful and stressful, which is why we offer same-day appointments for urgent cases. Our team is equipped to handle a wide range of dental emergencies, including severe toothaches, knocked-out or chipped teeth, lost fillings or crowns, dental abscesses, and injuries to the soft tissues of the mouth. When you arrive for emergency care, we quickly assess your condition and provide immediate pain relief if necessary. We use advanced diagnostic tools, including digital X-rays, to accurately identify the problem and determine the best course of treatment. Our goal is not only to address the immediate issue but also to prevent further complications and preserve your long-term oral health. We also provide clear aftercare instructions and follow-up appointments to ensure proper healing. Even if you're unsure whether your situation constitutes an emergency, we encourage you to contact us for guidance. Our experienced team can help you determine the urgency of your condition and provide appropriate advice or schedule you for the earliest available appointment.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
+                <img src="../Need_Images/Oral-surgery.png" alt="Emergency Dental Care" class="w-full h-48 object-cover">
+                <div class="service-content p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Oral Surgery</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Our oral surgery services encompass a wide range of procedures designed to treat complex dental issues and improve oral health. Our experienced oral surgeons are skilled in performing various surgical interventions, from routine wisdom tooth extractions to more complex procedures such as dental implant placement, bone grafting, and corrective jaw surgery. We use advanced imaging technology, including 3D CT scans, to plan and execute surgeries with precision. For wisdom tooth extractions, we offer both simple and surgical removal options, depending on the position and complexity of the teeth. In cases of severe decay or damage, we perform tooth extractions with a focus on preserving surrounding tissues and planning for future tooth replacement if desired. Our dental implant surgeries are carried out with meticulous attention to detail, ensuring optimal placement for long-term success. For patients with insufficient bone density, we offer bone grafting procedures to create a stable foundation for implants. We also provide surgical treatments for temporomandibular joint (TMJ) disorders and perform corrective jaw surgeries to address bite issues and facial imbalances. Throughout all procedures, patient comfort and safety are our top priorities. We offer various sedation options, from local anesthesia to IV sedation, to ensure a pain-free and anxiety-free experience. Our team provides comprehensive pre-operative instructions and post-operative care to promote quick healing and minimize complications.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold">Dr. Jane Doe</h3>
+                    <p>Expert Dental Care</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-blue-400"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-blue-400"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <hr class="border-gray-700 my-8">
+            <p class="text-center">&copy; 2023 Dr. Jane Doe Dental Practice. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        menuToggle.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+            menuToggle.classList.toggle("open");
+        });
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            if (body.classList.contains('dark')) {
+                darkModeToggle.innerHTML = '<i class="fas fa-sun text-2xl text-yellow-400"></i>';
+            } else {
+                darkModeToggle.innerHTML = '<i class="fas fa-moon text-2xl text-blue-600"></i>';
+            }
+        });
+
+        // Scroll event for header shadow
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 0) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Service card hover effect
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.querySelector('.service-content').style.transform = 'translateY(-10px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.querySelector('.service-content').style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
+
