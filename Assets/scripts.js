@@ -1,9 +1,14 @@
-window.addEventListener("load", () => {
+
+function hidePreloader() {
+    document.getElementById('preloader').classList.add('animate-fade-out');
     setTimeout(() => {
-        const preloader = document.querySelector(".preloader");
-        preloader.classList.add("hidden");
-    }, 3000);
-});
+        document.getElementById('preloader').classList.add('hidden');
+        document.getElementById('content').classList.remove('hidden');
+    }, 1000);
+}
+
+// Simulate initial loading
+setTimeout(hidePreloader, 2100); // 3 seconds preloader
 
  // Form submission (for demonstration purposes)
  const form = document.getElementById('contact-form');
@@ -106,3 +111,26 @@ scrollContainers.forEach(container => {
         container.scrollLeft = scrollLeft - walk;
     });
 });
+
+ // Active link highlighting
+ const sections = document.querySelectorAll("section");
+ const navLinks = document.querySelectorAll(".nav-link");
+
+ window.addEventListener("scroll", () => {
+     let current = "";
+
+     sections.forEach((section) => {
+         const sectionTop = section.offsetTop;
+         const sectionHeight = section.clientHeight;
+         if (pageYOffset >= sectionTop - sectionHeight / 3) {
+             current = section.getAttribute("id");
+         }
+     });
+
+     navLinks.forEach((link) => {
+         link.classList.remove("active");
+         if (link.getAttribute("href").slice(1) === current) {
+             link.classList.add("active");
+         }
+     });
+ });
