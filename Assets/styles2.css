@@ -65,36 +65,41 @@ body {
     transform: translateY(-10px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #3182ce;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
 .dark .preloader {
     background-color: #1a202c;
-}
-.loader {
-    font-size: 50px;
-    color: #f4f6f7;
-    animation: pulse 1.5s infinite;
-}
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
 }
 .dark #header.scrolled {
     background-color: rgba(26, 32, 44, 0.95);
     box-shadow: 0 2px 4px rgba(255,255,255,0.1);
 }
-
+.animate-smile {
+    animation: smile 2s ease-in-out infinite;
+}
+@keyframes smile {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.2); }
+}
+.animate-blink {
+    animation: blink 3s ease-in-out infinite;
+}
+@keyframes blink {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.1); }
+}
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.animate-fade-out {
+    animation: fadeOut 1s ease-out forwards;
+}
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -250,9 +255,22 @@ body {
     padding: 0.5rem 1rem;
     transition: color 0.3s ease, transform 0.3s ease;
 }
-.nav-link.active {
-    border-bottom: 2px solid #3B82F6;
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #3B82F6;
+    transform: scaleX(0);
+    transition: 0.3s ease-in-out;
 }
-.nav-link:hover {
-    transform: translateY(-2px);
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+.nav-link {
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
