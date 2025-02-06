@@ -3,7 +3,7 @@
 }
 
 .hero-background {
-    background-image: url('./Need_Images/pexels-pavel-danilyuk-6812479.jpg'); /* Hero section background image from Pexels */
+    background-image: url('../../Need_Images/pexels-pavel-danilyuk-6812479.jpg'); /* Hero section background image from Pexels */
     background-size: cover;
     background-position: center;
     height: 60vh;
