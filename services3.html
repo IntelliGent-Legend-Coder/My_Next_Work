@@ -6,143 +6,7 @@
     <title>Dr. Jane Doe - Dental Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .nav-link {
-            position: relative;
-            overflow: hidden;
-        }
-        .nav-link::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: all 0.6s;
-        }
-        .nav-link:hover::before {
-            left: 100%;
-        }
-        .nav-link:hover {
-            color: #3182ce;
-            text-shadow: 0 0 10px rgba(49, 130, 206, 0.5);
-            transform: translateY(-2px);
-        }
-        #header {
-            transition: all 0.3s ease;
-        }
-        .hamburger {
-            cursor: pointer;
-            width: 24px;
-            height: 24px;
-            transition: all 0.25s;
-            position: relative;
-        }
-        .hamburger-top,
-        .hamburger-middle,
-        .hamburger-bottom {
-            position: absolute;
-            width: 24px;
-            height: 2px;
-            top: 0;
-            left: 0;
-            background: #1a202c;
-            transform: rotate(0);
-            transition: all 0.5s;
-        }
-        .hamburger-middle {
-            transform: translateY(7px);
-        }
-        .hamburger-bottom {
-            transform: translateY(14px);
-        }
-        .open {
-            transform: rotate(90deg);
-        }
-        .open .hamburger-top {
-            transform: rotate(45deg) translateY(6px) translateX(6px);
-        }
-        .open .hamburger-middle {
-            display: none;
-        }
-        .open .hamburger-bottom {
-            transform: rotate(-45deg) translateY(6px) translateX(-6px);
-        }
-        .dark .hamburger-top,
-        .dark .hamburger-middle,
-        .dark .hamburger-bottom {
-            background: #e2e8f0;
-        }
-        #dark-mode-toggle {
-            transition: transform 0.5s ease-in-out;
-        }
-        #dark-mode-toggle:hover {
-            transform: rotate(180deg);
-        }
-        .dark {
-            background-color: #1a202c;
-            color: #e2e8f0;
-        }
-        .dark #header {
-            background-color: rgba(26, 32, 44, 0.95);
-        }
-        .dark .bg-white {
-            background-color: #2d3748;
-        }
-        .dark .text-gray-700 {
-            color: #e2e8f0;
-        }
-        .dark .bg-gray-100 {
-            background-color: #2d3748;
-        }
-        .dark .bg-blue-600 {
-            background-color: #4299e1;
-        }
-        .dark .hover\:bg-blue-700:hover {
-            background-color: #3182ce;
-        }
-        .service-card {
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: all 0.6s;
-        }
-        .service-card:hover::before {
-            left: 100%;
-        }
-        .service-card img {
-            transition: all 0.3s ease;
-        }
-        .service-card:hover img {
-            transform: scale(1.1);
-        }
-        .service-card .service-content {
-            transition: all 0.3s ease;
-        }
-        .service-card:hover .service-content {
-            background-color: rgba(255, 255, 255, 0.9);
-        }
-        .dark .service-card:hover .service-content {
-            background-color: rgba(45, 55, 72, 0.9);
-        }
-    </style>
+    <link rel="stylesheet" href="/Service/service.css">
 </head>
 <body class="bg-gray-100 dark:bg-gray-900">
     <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-800 shadow-md">
@@ -281,7 +145,7 @@
                 </div>
             </div>
             <div class="service-card bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden relative">
-                <img src="https://plus.unsplash.com/premium_photo-1674179073954-20536e140c20?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8b3JhbCUyMHN1cmdlcnl8ZW58MHx8MHx8fDA%3D" alt="Emergency Dental Care" class="w-full h-48 object-cover">
+                <img src="https://plus.unsplash.com/premium_photo-1674179075498-7db830debfd4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fG9yYWwlMjBzdXJnZXJ5fGVufDB8fDB8fHww" alt="Emergency Dental Care" class="w-full h-48 object-cover">
                 <div class="service-content p-6">
                     <h3 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-100">Oral Surgery</h3>
                     <p class="text-gray-700 dark:text-gray-300">Our oral surgery services encompass a wide range of procedures designed to treat complex dental issues and improve oral health. Our experienced oral surgeons are skilled in performing various surgical interventions, from routine wisdom tooth extractions to more complex procedures such as dental implant placement, bone grafting, and corrective jaw surgery. We use advanced imaging technology, including 3D CT scans, to plan and execute surgeries with precision. For wisdom tooth extractions, we offer both simple and surgical removal options, depending on the position and complexity of the teeth. In cases of severe decay or damage, we perform tooth extractions with a focus on preserving surrounding tissues and planning for future tooth replacement if desired. Our dental implant surgeries are carried out with meticulous attention to detail, ensuring optimal placement for long-term success. For patients with insufficient bone density, we offer bone grafting procedures to create a stable foundation for implants. We also provide surgical treatments for temporomandibular joint (TMJ) disorders and perform corrective jaw surgeries to address bite issues and facial imbalances. Throughout all procedures, patient comfort and safety are our top priorities. We offer various sedation options, from local anesthesia to IV sedation, to ensure a pain-free and anxiety-free experience. Our team provides comprehensive pre-operative instructions and post-operative care to promote quick healing and minimize complications.</p>
@@ -309,50 +173,7 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById("menu-toggle");
-        const mobileMenu = document.getElementById("mobile-menu");
-
-        menuToggle.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-            menuToggle.classList.toggle("open");
-        });
-
-        // Dark mode toggle
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        const body = document.body;
-
-        darkModeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark');
-            if (body.classList.contains('dark')) {
-                darkModeToggle.innerHTML = '<i class="fas fa-sun text-2xl text-yellow-400"></i>';
-            } else {
-                darkModeToggle.innerHTML = '<i class="fas fa-moon text-2xl text-blue-600"></i>';
-            }
-        });
-
-        // Scroll event for header shadow
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 0) {
-                header.classList.add('shadow-md');
-            } else {
-                header.classList.remove('shadow-md');
-            }
-        });
-
-        // Service card hover effect
-        const serviceCards = document.querySelectorAll('.service-card');
-        serviceCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.querySelector('.service-content').style.transform = 'translateY(-10px)';
-            });
-            card.addEventListener('mouseleave', () => {
-                card.querySelector('.service-content').style.transform = 'translateY(0)';
-            });
-        });
-    </script>
+    <script src="/Service/service.js"></script>
 </body>
 </html>
 

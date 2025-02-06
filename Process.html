@@ -19,49 +19,13 @@
             }
         }
     </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .nav-link {
-            position: relative;
-            overflow: hidden;
-        }
-        .nav-link::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: all 0.6s;
-        }
-        .nav-link:hover::before {
-            left: 100%;
-        }
-        #header {
-            transition: all 0.3s ease;
-        }
-        .form-input:hover, .form-input:focus {
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
-        }
-        @keyframes moonAnimation {
-            0% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(180deg); }
-            100% { transform: scale(1) rotate(360deg); }
-        }
-        #dark-mode-toggle:hover {
-            animation: moonAnimation 2s infinite;
-        }
-    </style>
+<link rel="stylesheet" href="/Third Assets/Styles3.css">
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 min-h-screen flex flex-col transition-colors duration-300">
     <header id="header" class="bg-white dark:bg-gray-800 shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
-                <a href="#" class="text-2xl font-bold text-primary dark:text-blue-400">Dr. Jane Doe</a>
+                <a href="#" class="text-2xl font-bold text-primary dark:text-blue-400">Dr. Souvik Parbat</a>
                 <div class="hidden md:flex space-x-4 items-center">
                     <a href="index.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 transition duration-300">Home</a>
                     <a href="About_testing.html" class="nav-link text-gray-800 dark:text-gray-200 hover:text-primary dark:hover:text-blue-400 transition duration-300">About</a>
@@ -134,75 +98,7 @@
         </div>
     </div>
 
-    <script>
-        // Navbar shadow on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 0) {
-                header.classList.add('shadow-md');
-            } else {
-                header.classList.remove('shadow-md');
-            }
-        });
-
-        // Dark mode toggle
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        const html = document.documentElement;
-        const icon = darkModeToggle.querySelector('i');
-
-        // Check for saved user preference
-        if (localStorage.getItem('darkMode') === 'true' || 
-            (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            html.classList.add('dark');
-            icon.classList.replace('fa-moon', 'fa-sun');
-        }
-
-        darkModeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            if (html.classList.contains('dark')) {
-                icon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('darkMode', 'true');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('darkMode', 'false');
-            }
-        });
-
-        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simple authorization check
-            const authCode = document.getElementById('authCode').value;
-            if (authCode !== 'DENTAL2023') {
-                alert('Invalid authorization code. Please try again.');
-                return;
-            }
-
-            // Gather form data
-            const formData = new FormData(this);
-            const appointmentDetails = Object.fromEntries(formData.entries());
-
-            // Simulate sending email by displaying the details in a modal
-            const emailContent = `
-                <p><strong>Patient Name:</strong> ${appointmentDetails.name}</p>
-                <p><strong>Email:</strong> ${appointmentDetails.email}</p>
-                <p><strong>Appointment Date:</strong> ${appointmentDetails.date}</p>
-                <p><strong>Appointment Time:</strong> ${appointmentDetails.time}</p>
-                <p><strong>Location:</strong> ${appointmentDetails.location}</p>
-                <p><strong>Reason for Appointment:</strong> ${appointmentDetails.reason}</p>
-            `;
-
-            document.getElementById('emailContent').innerHTML = emailContent;
-            document.getElementById('emailModal').classList.remove('hidden');
-            document.getElementById('emailModal').classList.add('flex');
-        });
-
-        document.getElementById('closeModal').addEventListener('click', function() {
-            document.getElementById('emailModal').classList.add('hidden');
-            document.getElementById('emailModal').classList.remove('flex');
-            document.getElementById('appointmentForm').reset();
-        });
-    </script>
+    <script src="/Third Assets/Source.js"></script>
 </body>
 </html>
 
