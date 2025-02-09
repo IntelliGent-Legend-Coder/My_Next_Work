@@ -17,7 +17,9 @@ body {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.3);
 }
-
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
 .nav-link {
     position: relative;
     overflow: hidden;
