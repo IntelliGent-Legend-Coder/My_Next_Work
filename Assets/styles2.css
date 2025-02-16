@@ -74,20 +74,29 @@ body {
     background-color: rgba(26, 32, 44, 0.95);
     box-shadow: 0 2px 4px rgba(255,255,255,0.1);
 }
-.animate-smile {
-    animation: smile 2s ease-in-out infinite;
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:#3498db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
-@keyframes smile {
-    0%, 100% { transform: scaleY(1); }
-    50% { transform: scaleY(1.2); }
+.loader {
+    font-size: 130px;
+    color:  #ffffff;
+    animation: pulse 1.5s infinite;
 }
-.animate-blink {
-    animation: blink 3s ease-in-out infinite;
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }
-@keyframes blink {
-    0%, 100% { transform: scaleY(1); }
-    50% { transform: scaleY(0.1); }
-}
+
 .animate-fade-in {
     animation: fadeIn 1s ease-out forwards;
 }
@@ -102,6 +111,7 @@ body {
     from { opacity: 1; }
     to { opacity: 0; }
 }
+
 .fade-in {
     opacity: 0;
     transform: translateY(20px);

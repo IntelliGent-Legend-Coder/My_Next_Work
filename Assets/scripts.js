@@ -1,14 +1,18 @@
 
-function hidePreloader() {
-    document.getElementById('preloader').classList.add('animate-fade-out');
-    setTimeout(() => {
-        document.getElementById('preloader').classList.add('hidden');
-        document.getElementById('content').classList.remove('hidden');
-    }, 1000);
-}
+     window.addEventListener("load", () => {
+            setTimeout(() => {
+                const preloader = document.querySelector(".preloader");
+                preloader.classList.add("hidden");
+            }, 3000);
+        });
 
-// Simulate initial loading
-setTimeout(hidePreloader, 2100); // 3 seconds preloader
+        function hidePreloader() {
+            document.getElementById('preloader').classList.add('animate-fade-out');
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+                document.getElementById('content').classList.remove('hidden');
+            }, 1000);
+        }
 
  // Form submission (for demonstration purposes)
  const form = document.getElementById('contact-form');
